@@ -11,8 +11,8 @@
 #   HUBOT_TWITTER_ACCESS_TOKEN_KEY
 #   HUBOT_TWITTER_ACCESS_TOKEN_SECRET
 #   HUBOT_TWITTER_MENTION_QUERY
-#   HUBOT_TWITTER_MENTION_ROOM_ID
-#   HUBOT_HIPCHAT_TOKEN
+#   HUBOT_TWITTER_MENTION_ROOM_ID [NEW!]
+#   HUBOT_HIPCHAT_TOKEN [NEW!]
 #
 # Commands:
 #   none
@@ -81,7 +81,7 @@ module.exports = (robot) ->
         for tweet in data.statuses.reverse()
           message = "こんなツイート発見しました http://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id_str}"
           #robot.messageRoom MENTION_ROOM, message
-          sendHipChatMessage MENTION_ROOM_ID, message, "COG"
+          sendHipChatMessage MENTION_ROOM_ID, message, "Twitter"
 
     setTimeout (->
       doAutomaticSearch(robot)
